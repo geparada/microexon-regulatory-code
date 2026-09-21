@@ -1,0 +1,66 @@
+cff-version: 1.2.0
+message: "If you use this software or its bundled predictions, please cite the associated paper."
+title: "Code for A microexon regulatory code reveals autism-linked genetic variation"
+type: software
+authors:
+  - family-names: Parada
+    given-names: Guillermo E.
+  - family-names: Bretschneider
+    given-names: Hannes
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21940006
+    description: Archived code release
+license: MIT
+repository-code: "https://github.com/geparada/microexon-regulatory-code"
+preferred-citation:
+  type: article
+  title: "A microexon regulatory code reveals autism-linked genetic variation"
+  authors:
+    - family-names: Parada
+      given-names: Guillermo E.
+    - family-names: Bretschneider
+      given-names: Hannes
+    - family-names: Li
+      given-names: Jack Daiyang
+    - family-names: Fine
+      given-names: Jacob L.
+    - family-names: Dupas
+      given-names: Steven J.
+    - family-names: Ellis
+      given-names: Jonathan D.
+    - family-names: Braunschweig
+      given-names: Ulrich
+    - family-names: Bonnal
+      given-names: Sophie
+    - family-names: Dalal
+      given-names: Taykhoom
+    - family-names: Engchuan
+      given-names: Worrawat
+    - family-names: Zarrei
+      given-names: Mehdi
+    - family-names: Wei
+      given-names: Wei
+    - family-names: Zafar
+      given-names: Nadia
+    - family-names: Hemberg
+      given-names: Martin
+    - family-names: Attisano
+      given-names: Liliana
+    - family-names: Ellis
+      given-names: James
+    - family-names: Irimia
+      given-names: Manuel
+    - family-names: Wainberg
+      given-names: Michael
+    - family-names: Trost
+      given-names: Brett
+    - family-names: Scherer
+      given-names: Stephen W.
+    - family-names: Morris
+      given-names: Quaid D.
+    - family-names: Blencowe
+      given-names: Benjamin J.
+  doi: 10.1038/s41586-026-11119-w
+  journal: Nature
+  year: 2026

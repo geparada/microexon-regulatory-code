@@ -1,0 +1,76 @@
+import pandas as pd
+
+configfile: "config/config.yaml"
+
+wildcard_constraints:
+  prefix=r"[\w_]+"
+
+include: "rules/download_data.smk"
+include: "rules/compute_features.smk"
+include: "rules/make_predictions.smk"
+include: "rules/qki_variants.smk"
+include: "rules/putative_microexons.smk"
+include: "rules/train_model.smk"
+include: "rules/saturation_ism.smk"
+include: "rules/personal_genome_predictions.smk"
+
+rule train_all:
+  input:
+    rules.train_model_known_mics.output,
+    rules.train_model_known_mics_human_only.output,
+    rules.novel_mics_train_model.output,
+
+
+known_mics_hg38 = pd.read_table("resources/inputs/wt/MicEvents.hg38.tab.gz")
+known_mics_hg38 = known_mics_hg38.loc[known_mics_hg38.label == "hi"]["event"]
+known_mics_mm10 = pd.read_table("resources/inputs/wt/MicEvents.mm10.tab.gz")
+known_mics_mm10 = known_mics_mm10.loc[known_mics_mm10.label == "hi"]["event"]
+
+rule predict_saturation_in_silico_mutagenesis:
+  input:
+    expand(
+      "results/predictions/{model}/saturation_mutagenesis/predictions.{event}_variants.hg38.csv.gz",
+      event=known_mics_hg38,
+      model=["known_microexons", "novel_microexons"],
+    ),
+    expand("results/predictions/{model}/wt/predictions.MicEvents.hg38.csv.gz",
+      model=["known_microexons", "novel_microexons"],
+    ),
+    expand(
+      "results/predictions/{model}/saturation_mutagenesis/predictions.{event}_variants.mm10.csv.gz",
+      event=known_mics_mm10,
+      model=["known_microexons", "novel_microexons"],
+    ),
+    expand("results/predictions/{model}/wt/predictions.MicEvents.mm10.csv.gz",
+      model=["known_microexons", "novel_microexons"],
+    )
+
+rule qki_predictions:
+  input:
+    expand("results/predictions/known_microexons/qki/predictions.qki_split_{split:02d}_{motif}.{genome}.csv.gz",
+      split=range(10), motif=["ACTAA", "ACTAAY"], genome=["hg38", "mm10"])
+
+TASKS, PREFIX, SPECIES = glob_wildcards("resources/inputs/{task}/{prefix}.{species}.tab.gz")
+rule predictions:
+  input:
+    expand(
+      "results/predictions/{model}/{task}/predictions.{prefix}.{species}.csv.gz",
+      zip,
+      model=["known_microexons", "known_microexons_hg38", "novel_microexons"],
+      task=TASKS,
+      prefix=PREFIX,
+      species=SPECIES
+    )
+
+DATASETS, SAMPLES = glob_wildcards(
+  "resources/personal_genomes/vcf/{dataset}/{sample}.vcf.gz"
+)
+rule personal_genomes:
+  input:
+    expand(
+      "results/predictions/{model}/personal_genomes/predictions.MicEvents_known_novel.[{dataset}--{sample}].csv.gz",
+      zip,
+      model=["known_microexons", "known_microexons_hg38", "novel_microexons"],
+      dataset=DATASETS,
+      sample=SAMPLES
+    )

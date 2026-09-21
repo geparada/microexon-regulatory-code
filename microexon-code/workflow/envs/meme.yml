@@ -1,0 +1,10 @@
+name: meme
+channels:
+  - conda
+  - bioconda
+  - conda-forge
+dependencies:
+  - meme<6
+  - python>=3
+  - tqdm
+  - cffi

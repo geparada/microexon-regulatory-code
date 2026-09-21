@@ -1,0 +1,30 @@
+# This repo is CODE ONLY. Never commit data, inputs, or results.
+
+# Controlled-access / large data (SSC, SPARK, MSSNG, genome, annotations)
+data/
+input_*/
+Results/
+
+# Snakemake internals
+.snakemake/
+
+# Large sequence / alignment / variant files (defensive)
+*.fa
+*.fa.gz
+*.fasta
+*.fai
+*.fxi
+*.bam
+*.bai
+*.vcf
+*.vcf.gz
+*.bed
+*.bigWig
+
+# Notebook checkpoints & python caches
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# OS cruft
+.DS_Store

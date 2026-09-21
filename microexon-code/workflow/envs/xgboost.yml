@@ -1,0 +1,8 @@
+name: xgboost
+channels:
+  - conda
+dependencies:
+  - python
+  - numpy
+  - xgboost
+  - pandas

@@ -1,0 +1,255 @@
+import csv
+import glob
+import os
+from collections import defaultdict
+
+
+file_pattern = os.path.join('input_indels4' , '*.indels.tsv')
+input_indels = glob.glob(file_pattern)
+
+indel_events = []
+
+# Iterate over the list of file paths
+for file_path in input_indels:
+    # Extract the filename from the file path
+    filename = os.path.basename(file_path)
+    # Remove the '.indels.tsv' suffix to get the basename
+    if filename.endswith('.indels.tsv'):
+        basename = filename[:-len('.indels.tsv')]
+        indel_events.append(basename)
+
+print(indel_events)
+
+
+
+human_event_coords = dict()
+
+with open("data/known_and_novel_microexons.known_microexon_model.hg38.csv") as file:
+    
+    reader = csv.DictReader(file, delimiter=",")
+    
+    for row in reader:
+        
+        lengthDiff = int(row["lengthDiff"])
+        
+
+        chrom = row["chrom"]
+        strand = row["strand"] 
+        
+        C1 = int(row["upIntStart"])
+        C2 = int(row["dnIntEnd"])
+        ME_start = int(row['upIntEnd'])
+        ME_end = int(row['dnIntStart'])
+        
+        if strand == "-":
+            
+            C1 = int(row['upIntEnd'])
+            C2 = int(row['dnIntStart'])
+            ME_start = int(row['dnIntEnd'])
+            ME_end = int(row['upIntStart'])
+            
+        
+        human_event_coords[row["event"]] = (C1, C2, ME_start, ME_end-1, chrom, strand, lengthDiff)
+
+discordant_sibs_fam = defaultdict(set)
+
+with open('CONTROLLED_ACCESS/data/SSC_metadata.tsv') as file:
+    reader = csv.DictReader(file, delimiter="\t")
+    for row in reader:
+        if row['Relation'] in ['proband', 'unaffected sibling']:
+            discordant_sibs_fam[row['Family ID']].add((row['Sample ID'], row['Affection']))
+
+
+with open('CONTROLLED_ACCESS/data/SPARK_WGS_metadata.tsv') as file:
+    reader = csv.DictReader(file, delimiter="\t")
+    for row in reader:
+        if row['Relation'] in ['proband', 'sibling']:
+            discordant_sibs_fam[row['Family ID']].add((row['Sample ID'], row['Affection']))
+
+discordant_sibs = set([])
+
+for fam in discordant_sibs_fam:
+
+    sib_info = discordant_sibs_fam[fam]
+    sib_IDs = [x[0] for x in sib_info]
+    affections = [x[1] for x in sib_info]
+    
+    if '1' in affections and '2' in affections:
+        for sample_ID in sib_IDs:
+            discordant_sibs.add(sample_ID)
+
+sibs = set()
+with open('CONTROLLED_ACCESS/data/SSC_SPARK_variants_TOTAL_delta_genome.csv') as file:
+
+    reader = csv.DictReader(file, delimiter="\t")
+    for row in reader:
+        sibs.add(row['proband'])
+        sibs.add(row['unaffected_sibling'])
+
+
+sample_IDs = set()
+with open('CONTROLLED_ACCESS/data/TOTAL_overlaping_variants.SSC_SPARK_MSSNG.csv') as file:
+
+    reader = csv.DictReader(file, delimiter=",")
+    for row in reader:
+        sample_IDs.add(row['sample_ID'])
+
+rule all:
+    input:
+        #hexamers = expand("Results/Pangolin_ISM/{event}.pangolin.ISM.tsv", event=human_event_coords.keys())
+        #hexamers = expand("Results/DeltaSplice_ISM/{event}.deltasplice.ISM.tsv", event=human_event_coords.keys())
+        expand("Results/DeltaSplice_indels/{event}.deltasplice.indels.tsv", event=indel_events),
+        expand("Results/Pangolin_indels/{event}.pangolin.indels.tsv", event=indel_events)
+        # expand("Results/ASD_sibs/DeltaSplice/{sib}.deltasplice.csv", sib=sibs),
+        # expand("Results/ASD_sibs/Pangolin/{sib}.pangolin.csv", sib=sibs)
+        #expand("Results/ASD_sibs/DeltaSplice/{sib}.deltasplice.csv", sib=discordant_sibs)
+        #expand("Results/ASD_sibs/Pangolin/{sib}.pangolin.csv", sib=SSC_SPARK)
+
+rule ISM_pangolin:
+    input:
+        Genome = "/scratch/ssd004/datasets/brainemo/Genome/hg38/hg38.fa",
+        mic_anno = "data/known_and_novel_microexons.known_microexon_model.hg38.csv"
+    params:
+        event = "{event}"
+    conda:
+        "pangolin4"
+    output:
+        results = "Results/Pangolin_ISM/{event}.pangolin.ISM.tsv"
+    shell:
+        """
+        python scripts/run_tissue_ISM.py \
+            --genome {input.Genome} \
+            --mic-anno {input.mic_anno} \
+            --event {params.event} \
+            --output {output.results}
+        """
+
+
+rule ISM_deltasplice:
+    input:
+        Genome = "/scratch/ssd004/datasets/brainemo/Genome/hg38/hg38.fa",
+        mic_anno = "data/known_and_novel_microexons.known_microexon_model.hg38.csv"
+    params:
+        event = "{event}"
+    conda:
+        "deltasplice"
+    output:
+        results = "Results/DeltaSplice_ISM/{event}.deltasplice.ISM.tsv"
+    shell:
+        """
+        python scripts/deltasplice_ISM.py \
+            --genome {input.Genome} \
+            --mic-anno {input.mic_anno} \
+            --event {params.event} \
+            --output {output.results}
+        """
+
+
+rule indels_deltasplice:
+    input:
+        genome = "/scratch/ssd004/datasets/brainemo/Genome/hg38/hg38.fa",
+        variant_file = "input_indels4/{event}.indels.tsv",
+        mic_anno = "data/known_and_novel_microexons.known_microexon_model.hg38.csv"
+    params:
+        event = "{event}"
+    conda:
+        "deltasplice"
+    output:
+        results = "Results/DeltaSplice_indels/{event}.deltasplice.indels.tsv"
+    shell:
+        """
+        python scripts/deltasplice_indels4.py \
+            --genome {input.genome} \
+            --variant_file {input.variant_file} \
+            --event {params.event} \
+            --mic_anno {input.mic_anno} \
+            --output {output.results}
+        """
+
+
+rule indels_pangolin:
+    input:
+        genome = "/scratch/ssd004/datasets/brainemo/Genome/hg38/hg38.fa",
+        variant_file = "input_indels4/{event}.indels.tsv",
+        mic_anno = "data/known_and_novel_microexons.known_microexon_model.hg38.csv"
+    params:
+        event = "{event}"
+    conda:
+        "pangolin4"
+    output:
+        results = "Results/Pangolin_indels/{event}.pangolin.indels.tsv"
+    shell:
+        """
+        python scripts/pangolin_indels2.py \
+            --genome {input.genome} \
+            --variant_file {input.variant_file} \
+            --event {params.event} \
+            --mic_anno {input.mic_anno} \
+            --output {output.results}
+        """
+
+# rule get_sib_event_genomes:
+#     input:
+#         Genome = "/scratch/ssd004/datasets/brainemo/Genome/hg38/hg38.fa",
+#         mic_anno = "data/known_and_novel_microexons.known_microexon_model.hg38.csv",
+#         sib_data = 'CONTROLLED_ACCESS/data/SSC_SPARK_variants_TOTAL_delta_genome.csv'
+#     params:
+#         sib = "{sib}"
+#     output:
+#         out_deltasplice = temp("Results/ASD_sibs/sib_event_genomes/{sib}.deltasplice.fa"),
+#         out_pangolin    = temp("Results/ASD_sibs/sib_event_genomes/{sib}.pangolin.fa")
+#     resources:
+#         get_sib=1
+#     conda:
+#         "deltasplice"
+#     script:
+#         "scripts/get_sib_event_genomes.py"
+
+rule TOTAL_event_genomes:
+    input:
+        Genome = "/scratch/ssd004/datasets/brainemo/Genome/hg38/hg38.fa",
+        mic_anno = "data/known_and_novel_microexons.known_microexon_model.hg38.csv",
+        total_event_vars = 'CONTROLLED_ACCESS/data/TOTAL_overlaping_variants.SSC_SPARK_MSSNG.csv'
+    params:
+        sib = "{sib}"
+    output:
+        out_deltasplice = temp("Results/ASD_sibs/sib_event_genomes/{sib}.deltasplice.fa"),
+        #out_pangolin    = temp("Results/ASD_sibs/sib_event_genomes/{sib}.pangolin.fa")
+        out_pangolin    = "Results/ASD_sibs/sib_event_genomes/{sib}.pangolin.fa"
+    resources:
+        get_sib=1
+    conda:
+        "deltasplice"
+    script:
+        "scripts/get_sib_event_genomes_TOTAL.py"
+
+rule DeltaSplice_sib:
+    input:
+        sib = "Results/ASD_sibs/sib_event_genomes/{sib}.deltasplice.fa"
+    output:
+        out_deltasplice = "Results/ASD_sibs/DeltaSplice/{sib}.deltasplice.csv"
+    resources:
+        deltasplice=1
+    retries: 3
+    conda:
+        "deltasplice"
+    shell:
+        """
+        python scripts/deltasplice_sib.py \
+            --sib_event {input.sib} \
+            --output {output.out_deltasplice}
+        """
+        
+rule Pangolin_sib:
+    input:
+        sib = "Results/ASD_sibs/sib_event_genomes/{sib}.pangolin.fa"
+    output:
+        out_pangolin = "Results/ASD_sibs/Pangolin/{sib}.pangolin.csv"
+    conda:
+        "pangolin4"
+    shell:
+        """
+        python scripts/pangolin_sib.py \
+            --sib_event {input.sib} \
+            --output {output.out_pangolin}
+        """

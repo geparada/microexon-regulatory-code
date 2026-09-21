@@ -1,0 +1,2 @@
+microexon-code/resources/novel_microexon_hg38/hg38_PSI_matrix.txt filter=lfs diff=lfs merge=lfs -text
+microexon-code/resources/seqweaver_model/human.seqweaver.model.cpu.nn.net filter=lfs diff=lfs merge=lfs -text

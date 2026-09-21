@@ -1,0 +1,11 @@
+name: predictions
+channels:
+  - conda-forge
+  - bioconda
+  - conda
+dependencies:
+  - python>=3.5
+  - xgboost
+  - pandas
+  - numpy
+

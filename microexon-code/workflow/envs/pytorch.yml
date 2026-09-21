@@ -1,0 +1,16 @@
+name: pytorch
+channels:
+  - pytorch
+  - conda
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.7
+  - cuda90
+  - pandas
+  - numpy
+  - twobitreader
+  - tqdm
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu90
+      - torch==0.4.1.post2

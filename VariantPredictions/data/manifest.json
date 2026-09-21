@@ -1,0 +1,44 @@
+{
+  "assembly": "GRCh38/hg38",
+  "covered_events": 636,
+  "files": {
+    "MIC_ISM.gz": {
+      "bytes": 51180133,
+      "events": 636,
+      "rows": 3459549,
+      "sha256": "0b6d2b9d063d201b600d62c344583d3502d5c9b802f59171bf946e7490a83bdb"
+    },
+    "MIC_ISM_wt.gz": {
+      "bytes": 5852,
+      "events": 636,
+      "rows": 636,
+      "sha256": "e42d3d358a2e81f7ec156b3d53c5a87e42dd6fcfc90da46341fcd04c81c81f71"
+    },
+    "MIC_event_scaling.csv.gz": {
+      "bytes": 10931,
+      "events": 636,
+      "rows": 636,
+      "sha256": "3ae58ae66cb137c7d30d80b38f277f985236691f721e129a89fc31c0f734d745"
+    },
+    "MIC_indels.csv.gz": {
+      "bytes": 494861,
+      "events": 632,
+      "rows": 21966,
+      "sha256": "fd72a7d56c06559a9f9e3ac97fc8bae74ca03e28f50c4a3a93e3fc0c97cb66f8",
+      "unique_variants": 20935
+    },
+    "microexon_events.hg38.csv.gz": {
+      "bytes": 18273,
+      "events": 636,
+      "rows": 636,
+      "sha256": "2529af8c3d1cdfbdf15d365f1d7d1cce54e21b38a76f59350ee836657df44686"
+    }
+  },
+  "format_version": 2,
+  "sources": {
+    "mic_ism": "MIC_ISM.gz",
+    "mic_wt": "MIC_ISM_wt.gz",
+    "microexons": "known_and_novel_microexons.known_microexon_model.hg38.csv",
+    "supplementary_table_12": "total_variants_SSC_SPARK_MSSNG.full_info_table.rebuilt.csv"
+  }
+}

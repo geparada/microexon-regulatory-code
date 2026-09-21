@@ -1,0 +1,13 @@
+name: r
+channels:
+  - conda-forge
+  - r
+  - defaults
+  - plotly
+dependencies:
+  - r
+  - r-tidyverse
+  - r-heatmaply
+  - r-cetcolor
+  - plotly-orca
+

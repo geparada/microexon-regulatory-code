@@ -1,0 +1,39 @@
+# List all event input files here
+samples:
+  # The file format must conform to {prefix}.{species}.tab.gz
+  - resources/inputs/mic_events.hg38.tab.gz
+  - resources/inputs/mic_events.mm10.tab.gz
+
+# Whether to use CUDA for GPU acceleration of Seqweaver features
+cuda: True
+
+# Path to the trained xgboost model
+model_path: "resources/models/known_microexons"
+
+# Path to the SVM light executable
+svm_light_path: "svm-bpfinder/svm_light_linux/svm_classify"
+
+# Mammalian genomes used in the model
+species:
+  - hg38
+  - mm10
+  - bosTau6
+  - monDom5
+  - rheMac2
+  - panTro4
+  - rn6
+
+# List of features used in the model
+model_features:
+  - ss_strength
+  - gc_content
+  - svm_bp_scores
+  - manual_rbp_binding
+  - CisBP
+  - cossmo
+  - seqweaver
+  - nsr100
+  - kmers
+
+# This is the filename schema that input files need to follow
+input_file_schema: "resources/inputs/{task}/{prefix}.{species}.tab.gz"

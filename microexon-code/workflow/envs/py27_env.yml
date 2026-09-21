@@ -1,0 +1,4 @@
+# Needed for the SVM-BP algorithm which is not Python 3 compatible
+name: py2.7
+dependencies:
+  - python=2.7

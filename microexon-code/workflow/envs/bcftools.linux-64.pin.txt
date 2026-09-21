@@ -1,0 +1,42 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: linux-64
+@EXPLICIT
+https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2#d7c89558ba9fa0495403155b64376d81
+https://conda.anaconda.org/conda-forge/linux-64/ca-certificates-2024.6.2-hbcca054_0.conda#847c3c2905cc467cea52c24f9cfa8080
+https://conda.anaconda.org/conda-forge/linux-64/libgomp-13.2.0-h77fa898_10.conda#9404d1686e63142d41acc72ef876a588
+https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-2_gnu.tar.bz2#73aaf86a425cc6e73fcf236a5a46396d
+https://conda.anaconda.org/conda-forge/linux-64/libgcc-ng-13.2.0-h77fa898_10.conda#bbb96c5e7a11ef8ca2b666fe9fe3d199
+https://conda.anaconda.org/conda-forge/linux-64/bzip2-1.0.8-hd590300_5.conda#69b8b6202a07720f448be700e300ccf4
+https://conda.anaconda.org/conda-forge/linux-64/c-ares-1.28.1-hd590300_0.conda#dcde58ff9a1f30b0037a2315d1846d1f
+https://conda.anaconda.org/conda-forge/linux-64/keyutils-1.6.1-h166bdaf_0.tar.bz2#30186d27e2c9fa62b45fb1476b7200e3
+https://conda.anaconda.org/conda-forge/linux-64/libdeflate-1.20-hd590300_0.conda#8e88f9389f1165d7c0936fe40d9a9a79
+https://conda.anaconda.org/conda-forge/linux-64/libev-4.33-hd590300_2.conda#172bf1cd1ff8629f2b1179945ed45055
+https://conda.anaconda.org/conda-forge/linux-64/libgfortran5-13.2.0-h3d2ce59_10.conda#e3896e5c2dd1cbabaf4abb3254df47b0
+https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-ng-13.2.0-hc0a3c3a_10.conda#ea50441ab527f23ffa108ade07e2fde0
+https://conda.anaconda.org/conda-forge/linux-64/libuuid-2.38.1-h0b41bf4_0.conda#40b61aab5c7ba9ff276c41cfffe6b80b
+https://conda.anaconda.org/conda-forge/linux-64/libxcrypt-4.4.36-hd590300_1.conda#5aa797f8787fe7a17d1b0821485b5adc
+https://conda.anaconda.org/conda-forge/linux-64/libzlib-1.2.13-h4ab18f5_6.conda#27329162c0dc732bcf67a4e0cd488125
+https://conda.anaconda.org/conda-forge/linux-64/ncurses-6.5-h59595ed_0.conda#fcea371545eda051b6deafb24889fc69
+https://conda.anaconda.org/conda-forge/linux-64/openssl-3.3.1-h4ab18f5_0.conda#a41fa0e391cc9e0d6b78ac69ca047a6c
+https://conda.anaconda.org/conda-forge/linux-64/xz-5.2.6-h166bdaf_0.tar.bz2#2161070d867d1b1204ea749c8eec4ef0
+https://conda.anaconda.org/bioconda/linux-64/bedtools-2.31.1-hf5e1c6e_1.tar.bz2#2066287e826a2ff469fa0b62b24b6059
+https://conda.anaconda.org/conda-forge/linux-64/libedit-3.1.20191231-he28a2e2_2.tar.bz2#4d331e44109e3f0e19b4cb8f9b82f3e1
+https://conda.anaconda.org/conda-forge/linux-64/libgfortran-ng-13.2.0-h69a702a_10.conda#a78f7b3d951665c4c57578a8d3787993
+https://conda.anaconda.org/conda-forge/linux-64/libnghttp2-1.58.0-h47da74e_1.conda#700ac6ea6d53d5510591c4344d5c989a
+https://conda.anaconda.org/conda-forge/linux-64/libpng-1.6.43-h2797004_0.conda#009981dd9cfcaa4dbfa25ffaed86bcae
+https://conda.anaconda.org/conda-forge/linux-64/libssh2-1.11.0-h0841786_0.conda#1f5a58e686b13bcfde88b93f547d23fe
+https://conda.anaconda.org/conda-forge/linux-64/mysql-connector-c-6.1.11-h659d440_1008.conda#149e0b89cbbe09397f1147cb3736bcbe
+https://conda.anaconda.org/conda-forge/linux-64/perl-5.32.1-7_hd590300_perl5.conda#f2cfec9406850991f4e3d960cc9e3321
+https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.6-ha6fb4c9_0.conda#4d056880988120e29d75bfff282e0f45
+https://conda.anaconda.org/conda-forge/linux-64/krb5-1.21.2-h659d440_0.conda#cd95826dbd331ed1be26bdf401432844
+https://conda.anaconda.org/conda-forge/linux-64/libopenblas-0.3.27-pthreads_h413a1c8_0.conda#a356024784da6dfd4683dc5ecf45b155
+https://conda.anaconda.org/bioconda/linux-64/ucsc-fatotwobit-455-h2a80c09_1.tar.bz2#2b80e4f598f918f527fe7b2487ea2ff4
+https://conda.anaconda.org/bioconda/linux-64/ucsc-liftover-447-h2a80c09_1.tar.bz2#dc1f7032208593676d5af52bb90a44ae
+https://conda.anaconda.org/conda-forge/linux-64/libblas-3.9.0-22_linux64_openblas.conda#1a2a0cd3153464fee6646f3dd6dad9b8
+https://conda.anaconda.org/conda-forge/linux-64/libcurl-8.8.0-hca28451_0.conda#f21c27f076a07907e70c49bb57bd0f20
+https://conda.anaconda.org/bioconda/linux-64/htslib-1.20-h5efdd21_1.tar.bz2#451deefa67e250cf3268a484d9734465
+https://conda.anaconda.org/conda-forge/linux-64/libcblas-3.9.0-22_linux64_openblas.conda#4b31699e0ec5de64d5896e580389c9a1
+https://conda.anaconda.org/conda-forge/linux-64/gsl-2.7-he838d99_0.tar.bz2#fec079ba39c9cca093bf4c00001825de
+https://conda.anaconda.org/bioconda/noarch/tabix-1.11-hdfd78af_0.tar.bz2#cb68d74b5a5ca94b745ce168b1043dfd
+https://conda.anaconda.org/bioconda/linux-64/bcftools-1.20-h8b25389_0.tar.bz2#227ba3d820ac2f171b2ee20eb780cbac

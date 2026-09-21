@@ -1,0 +1,11 @@
+feature_set:
+  - length
+  - ss_strength
+  - gc_content
+  - bp_scores
+  - manual_rbp
+  - cis_bp
+  - cossmo
+  - seqweaver
+  - nsr100
+  - kmers

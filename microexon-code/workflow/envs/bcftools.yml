@@ -1,0 +1,12 @@
+name: bcftools
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - tabix
+  - ucsc-fatotwobit
+  - ucsc-liftover
+  - bcftools
+  - bedtools
+

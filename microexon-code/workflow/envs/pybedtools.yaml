@@ -1,0 +1,11 @@
+name: pybedtools
+channels:
+  - conda
+  - bioconda
+  - conda-forge
+dependencies:
+  - python>3
+  - pybedtools
+  - bedtools
+  - pandas
+  - tqdm
