@@ -139,6 +139,6 @@ The `data/` directory contains the five gzip-compressed CSV files used by `varia
 
 If you use these predictions, please cite the associated paper:
 
-> Parada, G. E. *et al.* A microexon regulatory code reveals autism-linked genetic variation. *Nature* (2026). [https://doi.org/10.1038/s41586-026-11119-w](https://doi.org/10.1038/s41586-026-11119-w)
+> Parada, G. E.&#42;, Bretschneider, H.&#42;, Li, J. D., Fine, J. L., Dupas, S. J., Ellis, J. D., Braunschweig, U., Bonnal, S., Dalal, T., Engchuan, W., Zarrei, M., Wei, W., Zafar, N., Hemberg, M., Attisano, L., Ellis, J., Irimia, M., Wainberg, M., Trost, B., Scherer, S. W., Morris, Q. D.† & Blencowe, B. J.† A microexon regulatory code reveals autism-linked genetic variation. *Nature* (2026). [https://doi.org/10.1038/s41586-026-11119-w](https://doi.org/10.1038/s41586-026-11119-w)
 
 The code archive cited in the paper has the Zenodo DOI [10.5281/zenodo.21940006](https://doi.org/10.5281/zenodo.21940006).

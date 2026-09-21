@@ -7,6 +7,55 @@ authors:
     given-names: Guillermo E.
   - family-names: Bretschneider
     given-names: Hannes
+  - family-names: Li
+    given-names: Jack Daiyang
+  - family-names: Fine
+    given-names: Jacob L.
+  - family-names: Dupas
+    given-names: Steven J.
+  - family-names: Ellis
+    given-names: Jonathan D.
+  - family-names: Braunschweig
+    given-names: Ulrich
+  - family-names: Bonnal
+    given-names: Sophie
+  - family-names: Dalal
+    given-names: Taykhoom
+  - family-names: Engchuan
+    given-names: Worrawat
+  - family-names: Zarrei
+    given-names: Mehdi
+  - family-names: Wei
+    given-names: Wei
+  - family-names: Zafar
+    given-names: Nadia
+  - family-names: Hemberg
+    given-names: Martin
+  - family-names: Attisano
+    given-names: Liliana
+  - family-names: Ellis
+    given-names: James
+  - family-names: Irimia
+    given-names: Manuel
+  - family-names: Wainberg
+    given-names: Michael
+  - family-names: Trost
+    given-names: Brett
+  - family-names: Scherer
+    given-names: Stephen W.
+  - family-names: Morris
+    given-names: Quaid D.
+    email: morrisq@mskcc.org
+  - family-names: Blencowe
+    given-names: Benjamin J.
+    email: b.blencowe@utoronto.ca
+contact:
+  - family-names: Morris
+    given-names: Quaid D.
+    email: morrisq@mskcc.org
+  - family-names: Blencowe
+    given-names: Benjamin J.
+    email: b.blencowe@utoronto.ca
 identifiers:
   - type: doi
     value: 10.5281/zenodo.21940006
