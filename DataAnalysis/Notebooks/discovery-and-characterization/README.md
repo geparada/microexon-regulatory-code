@@ -45,8 +45,7 @@ See [Running the notebooks](../#running-the-notebooks) for environment and worki
 
 | Notebook | Role |
 |---|---|
-| [human_microexons-Copy1.ipynb](archive/human_microexons-Copy1.ipynb) | Initial development |
-| [human_microexons-Copy2.ipynb](archive/human_microexons-Copy2.ipynb) | Initial development |
-| [Draf_figures_Jan_2022.ipynb](archive/Draf_figures_Jan_2022.ipynb) | Initial development |
+| [human_microexons.ipynb](archive/human_microexons.ipynb) | Initial development |
+| [Draft figures Jan 2022.ipynb](archive/Draft%20figures%20Jan%202022.ipynb) | Initial development |
 | [Draft_Figure2_May_2022.ipynb](archive/Draft_Figure2_May_2022.ipynb) | Initial development |
 | [Draft_figure3_May_2022.ipynb](archive/Draft_figure3_May_2022.ipynb) | Initial development |

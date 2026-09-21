@@ -54,7 +54,7 @@ See [Running the notebooks](../#running-the-notebooks) for environment and worki
 | Notebook | Role |
 |---|---|
 | [Final_inputs_for_hannes.ipynb](supporting/Final_inputs_for_hannes.ipynb) | Supporting analysis |
-| [Single vairants for Brett.ipynb](supporting/Single%20vairants%20for%20Brett.ipynb) | Supporting analysis |
+| [Single variant supporting analysis.ipynb](supporting/Single%20variant%20supporting%20analysis.ipynb) | Supporting analysis |
 | [ASD_variants_python.ipynb](supporting/ASD_variants_python.ipynb) | Supporting analysis |
 
 ## Individual variants and additional analyses
@@ -84,18 +84,11 @@ See [Running the notebooks](../#running-the-notebooks) for environment and worki
 | [Recurrently mutated microexons - SPARK .ipynb](archive/Recurrently%20mutated%20microexons%20-%20SPARK%20.ipynb) | Initial development |
 | [Recurrently mutated microexons - SSC .ipynb](archive/Recurrently%20mutated%20microexons%20-%20SSC%20.ipynb) | Initial development |
 | [Single variant analyses.ipynb](archive/Single%20variant%20analyses.ipynb) | Initial development |
-| [Single variant analyses - old .ipynb](archive/Single%20variant%20analyses%20-%20old%20.ipynb) | Initial development |
+| [Single variant analyses initial.ipynb](archive/Single%20variant%20analyses%20initial.ipynb) | Initial development |
 | [Variant plots.ipynb](archive/Variant%20plots.ipynb) | Initial development |
-| [Variant plots II.ipynb](archive/Variant%20plots%20II.ipynb) | Initial development |
 | [Whole genome scores.ipynb](archive/Whole%20genome%20scores.ipynb) | Initial development |
 | [Whole genome scores II.ipynb](archive/Whole%20genome%20scores%20II.ipynb) | Initial development |
-| [Whole genome scores II-Copy1.ipynb](archive/Whole%20genome%20scores%20II-Copy1.ipynb) | Initial development |
+| [Whole genome scores II revised.ipynb](archive/Whole%20genome%20scores%20II%20revised.ipynb) | Initial development |
 | [Whole genome scores III.ipynb](archive/Whole%20genome%20scores%20III.ipynb) | Initial development |
 | [Whole genome scores IV.ipynb](archive/Whole%20genome%20scores%20IV.ipynb) | Initial development |
 | [Whole genome scores V.ipynb](archive/Whole%20genome%20scores%20V.ipynb) | Initial development |
-
-## Empty development placeholder
-
-| Notebook | Role |
-|---|---|
-| [New_score_analysis.ipynb](archive/New_score_analysis.ipynb) | Initial development |

@@ -12,9 +12,6 @@ See [Running the notebooks](../#running-the-notebooks) for environment and worki
 |---|---|
 | [Domain analysis - Human.ipynb](figures/Domain%20analysis%20-%20Human.ipynb) | Figure analysis |
 | [Domain analysis.ipynb](supporting/Domain%20analysis.ipynb) | Supporting analysis |
-| [Domain analysis-Copy1.ipynb](archive/Domain%20analysis-Copy1.ipynb) | Initial development |
-| [Domain analysis-Copy2.ipynb](archive/Domain%20analysis-Copy2.ipynb) | Initial development |
-| [Domain analysis-Copy3.ipynb](archive/Domain%20analysis-Copy3.ipynb) | Initial development |
 
 ## Protein schematics and gene examples: Figures 2/4/5
 
@@ -28,7 +25,7 @@ See [Running the notebooks](../#running-the-notebooks) for environment and worki
 |---|---|
 | [Enrichment_analyses_2025.ipynb](supporting/Enrichment_analyses_2025.ipynb) | Supporting analysis |
 | [Enrichment analyses II.ipynb](supporting/Enrichment%20analyses%20II.ipynb) | Supporting analysis |
-| [Simplifiying_enrichment.ipynb](supporting/Simplifiying_enrichment.ipynb) | Supporting analysis |
+| [Simplifying enrichment.ipynb](supporting/Simplifying%20enrichment.ipynb) | Supporting analysis |
 
 ## GO/pathway exploration and earlier enrichment
 
@@ -36,4 +33,4 @@ See [Running the notebooks](../#running-the-notebooks) for environment and worki
 |---|---|
 | [Enrichment_analyses_2024.ipynb](archive/Enrichment_analyses_2024.ipynb) | Initial development |
 | [GO analyses.ipynb](archive/GO%20analyses.ipynb) | Initial development |
-| [GO anlyses 2.ipynb](archive/GO%20anlyses%202.ipynb) | Initial development |
+| [GO analyses 2.ipynb](archive/GO%20analyses%202.ipynb) | Initial development |

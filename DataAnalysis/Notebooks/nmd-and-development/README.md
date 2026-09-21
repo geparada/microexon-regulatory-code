@@ -14,7 +14,7 @@ See [Running the notebooks](../#running-the-notebooks) for environment and worki
 | [NDM_II.ipynb](figures/NDM_II.ipynb) | Figure analysis |
 | [NMD analysis.ipynb](supporting/NMD%20analysis.ipynb) | Supporting analysis |
 | [Selecting_NMD_microexons_validation.ipynb](supporting/Selecting_NMD_microexons_validation.ipynb) | Supporting analysis |
-| [Rebutal_II_NMD.ipynb](supporting/Rebutal_II_NMD.ipynb) | Supporting analysis |
+| [Rebuttal II NMD.ipynb](supporting/Rebuttal%20II%20NMD.ipynb) | Supporting analysis |
 | [Human_cell_lines.ipynb](supporting/Human_cell_lines.ipynb) | Supporting analysis |
 
 ## PSI heatmaps: Figure 1g and Extended Data Figure 1
