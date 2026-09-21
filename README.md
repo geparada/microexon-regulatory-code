@@ -29,6 +29,4 @@ If you use this code or the bundled predictions, please cite the associated pape
 
 > Parada, G. E.&#42;, Bretschneider, H.&#42;, Li, J. D., Fine, J. L., Dupas, S. J., Ellis, J. D., Braunschweig, U., Bonnal, S., Dalal, T., Engchuan, W., Zarrei, M., Wei, W., Zafar, N., Hemberg, M., Attisano, L., Ellis, J., Irimia, M., Wainberg, M., Trost, B., Scherer, S. W., Morris, Q. D.† & Blencowe, B. J.† A microexon regulatory code reveals autism-linked genetic variation. *Nature* (2026). [https://doi.org/10.1038/s41586-026-11119-w](https://doi.org/10.1038/s41586-026-11119-w)
 
-The Zenodo code archive cited in the paper is:
-
-> Parada, G. E.&#42;, Bretschneider, H.&#42;, Li, J. D., Fine, J. L., Dupas, S. J., Ellis, J. D., Braunschweig, U., Bonnal, S., Dalal, T., Engchuan, W., Zarrei, M., Wei, W., Zafar, N., Hemberg, M., Attisano, L., Ellis, J., Irimia, M., Wainberg, M., Trost, B., Scherer, S. W., Morris, Q. D.† & Blencowe, B. J.† Code for “A microexon regulatory code reveals autism-linked genetic variation”. *Zenodo* (2026). [https://doi.org/10.5281/zenodo.21940006](https://doi.org/10.5281/zenodo.21940006)
+The corresponding code release is archived on Zenodo: [10.5281/zenodo.21940006](https://doi.org/10.5281/zenodo.21940006).
