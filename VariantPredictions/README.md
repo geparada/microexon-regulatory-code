@@ -133,7 +133,7 @@ A positive `delta_code_model` indicates an increase in the model score relative 
 
 ## Bundled data files
 
-The `data/` directory contains the five gzip-compressed CSV files used by `variant_predictions.py`: single-nucleotide substitution scores, wild-type scores, precomputed indel effects, event-level scaling factors, and genomic annotations for 636 microexon events. The files can also be used directly in custom pipelines. See the [data README](data/README.md) for complete table descriptions, column definitions, coordinate conventions, and guidance for custom lookups.
+The `data/` directory contains the five gzip-compressed CSV files used by `variant_predictions.py`: single-nucleotide substitution scores, wild-type scores, precomputed indel effects, event-level scaling factors, and genomic annotations for 636 microexon events. It also contains a metadata table describing each human microexon in the release and in Supplementary Table 2. The files can also be used directly in custom pipelines. See the [data README](data/README.md) for complete table descriptions, column definitions, coordinate conventions, and guidance for custom lookups.
 
 ## Citation
 

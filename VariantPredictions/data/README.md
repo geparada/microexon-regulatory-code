@@ -1,6 +1,6 @@
 # VariantPredictions data
 
-This directory contains the five gzip-compressed CSV files used by `../variant_predictions.py`. Together, they contain single-nucleotide substitution scores, wild-type scores, precomputed indel effects, event-level scaling factors, and genomic annotations for 636 microexon events. Researchers can use the files directly in custom pipelines by joining them through the shared `event` identifier. All genomic coordinates refer to GRCh38/hg38.
+This directory contains the five gzip-compressed CSV files used by `../variant_predictions.py`. Together, they contain single-nucleotide substitution scores, wild-type scores, precomputed indel effects, event-level scaling factors, and genomic annotations for 636 microexon events. It also contains `microexon_metadata.hg38.csv`, a reference table describing each human microexon in this release and in Supplementary Table 2 of our paper. It is not used by the script, but can help users interpret its results. Researchers can use the files directly in custom pipelines by joining them through the shared `event` identifier. All genomic coordinates refer to GRCh38/hg38.
 
 ## `MIC_ISM.gz`
 
@@ -75,3 +75,28 @@ This table defines the genomic coordinates and annotations of the 636 covered mi
 | `group` | Source annotation group: `known_mic` or `novel_mic`. In the output, `variant_predictions.py` uses `new_mic` for novel microexons to match the naming in Supplementary Table 12. |
 
 When mapping ISM substitutions to genomic positions in a custom pipeline, combine these event coordinates with `region` and `rel_pos`, accounting for strand and the difference between 0-based interval coordinates and 1-based VCF positions. `variant_predictions.py` implements this conversion for VCF queries.
+
+## `microexon_metadata.hg38.csv`
+
+This table describes 1,858 human microexons: the 344 known microexons evaluated by the code model and the 1,514 human microexons in Supplementary Table 2 (ST2) of our paper (1,222 New and 292 New Neuronal). It records each microexon's annotation status, whether the code model evaluated and selected it, and whether it may need additional validation. Join it to the other tables using `event`. Microexon coordinates use the same 0-based, half-open convention as `microexon_events.hg38.csv.gz`.
+
+| Column | Description |
+|---|---|
+| `microexon_id` | `chrom_strand_start_end`; the ST2 `ME-ID` for new microexons. |
+| `chrom`, `strand`, `start`, `end` | Microexon coordinates (0-based, half-open). |
+| `length` | Microexon length in nt. |
+| `gene` | Gene name. |
+| `event` | Event identifier used in the code release: VastDB `HsaEX…` for known microexons, `putative_microexon_…` for new ones. |
+| `catalogue_class` | `known`: previously annotated microexon (VastDB). `new_neuronal`: new microexon with neuronal-differential inclusion (ST2 "New Neuronal"). `new`: new microexon detected but not neuronal-differential (ST2 "New"). |
+| `in_supplementary_table_2` | `yes` for the 1,514 human ST2 microexons. Known microexons are not in ST2. |
+| `in_variant_predictions` | `yes` for the 636 microexons with precomputed code-model scores in this directory (344 known, 292 New Neuronal). |
+| `code_selected` | `yes`: one of the 369 microexons the code model recognises as carrying the neuronal regulatory code (ISM cluster 1, silhouette ≥ 0.1, RP11 clone-named genes removed, as in the Methods). These are the microexons used in the code and genetics analyses. `no`: evaluated but not selected. `not_evaluated`: not scored by the code model (all ST2 "New" microexons). |
+| `ism_cluster`, `ism_silhouette` | ISM cluster and silhouette width behind `code_selected`. |
+| `possible_alt_splice_site` | Whether the microexon could also correspond to an alternative 5' or 3' splice site of a flanking exon (see below): `exact` (identical sequence), `near` (1 to 2 mismatches), `sequence_match_only` (identical sequence, alternative junction not annotated) or `no`. |
+| `alt_site_side` | `3' (acceptor)` or `5' (donor)`: the flanking exon with the alternative site. |
+| `alt_site_mismatches` | Mismatches between the microexon and the bases at the alternative site. |
+| `microexon_seq`, `alt_site_seq` | Microexon sequence and alternative-site bases, in transcript orientation. |
+
+### Microexons that may correspond to alternative splice sites
+
+For a small number of short microexons, the microexon sequence matches the bases between two alternative splice sites of a flanking exon, located the same number of nucleotides apart. In these cases, the mRNA that includes the microexon has the same sequence, or nearly the same sequence, as the mRNA in which the flanking exon is spliced at an alternative 5' or 3' splice site. RNA-seq reads, and RT-PCR products, may therefore not distinguish the two. These events are marked in `possible_alt_splice_site` and may require additional validation, for example genomic mutation of the microexon splice sites, before being interpreted as microexon inclusion. Nearly all code-selected microexons, which were used in the downstream genetic analyses of the paper, do not belong to this class.
