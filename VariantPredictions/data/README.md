@@ -88,7 +88,6 @@ This table describes 1,858 human microexons: the 344 known microexons evaluated 
 | `gene` | Gene name. |
 | `event` | Event identifier used in the code release: VastDB `HsaEX…` for known microexons, `putative_microexon_…` for new ones. |
 | `catalogue_class` | `known`: previously annotated microexon (VastDB). `new_neuronal`: new microexon with neuronal-differential inclusion (ST2 "New Neuronal"). `new`: new microexon detected but not neuronal-differential (ST2 "New"). |
-| `in_supplementary_table_2` | `yes` for the 1,514 human ST2 microexons. Known microexons are not in ST2. |
 | `in_variant_predictions` | `yes` for the 636 microexons with precomputed code-model scores in this directory (344 known, 292 New Neuronal). |
 | `code_selected` | `yes`: one of the 369 microexons the code model recognises as carrying the neuronal regulatory code (ISM cluster 1, silhouette ≥ 0.1, RP11 clone-named genes removed, as in the Methods). These are the microexons used in the code and genetics analyses. `no`: evaluated but not selected. `not_evaluated`: not scored by the code model (all ST2 "New" microexons). |
 | `ism_cluster`, `ism_silhouette` | ISM cluster and silhouette width behind `code_selected`. |
